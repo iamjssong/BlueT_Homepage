@@ -26,7 +26,8 @@ BlueT Golf의 반응형 회사 홈페이지와 별도 공지·뉴스 관리자 �
 
 - 주소: `https://iamjssong.github.io/BlueT_Homepage/`
 - 포함: 홈페이지, 이미지, 스타일, 방문자용 화면
-- 제외: 관리자 화면, Worker API, D1 데이터베이스
+- 관리자 주소: `https://iamjssong.github.io/BlueT_Homepage/admin.html` (기존 Worker 관리자 화면으로 연결)
+- 제외: Worker API, D1 데이터베이스
 
 GitHub Pages는 정적 호스팅이므로 공지·뉴스 API와 관리자 기능은 기존 배포 플랫폼에서 동작합니다. 저장소 Settings → Pages에서 Pages를 활성화하고 Source를 `GitHub Actions`로 선택해야 합니다.
 
