@@ -30,7 +30,9 @@ jobs:
           mkdir -p _site
           cp index.html admin.html style.css admin.css script.js news.js admin.js _site/
           cp -R assets _site/assets
-          cp news-data.json _site/news-data.json
+          curl --fail --silent --show-error \
+            https://bluet-golf-homepage.iamjssong.chatgpt.site/api/news \
+            -o _site/news-data.json
           touch _site/.nojekyll
 
       - name: Configure GitHub Pages
