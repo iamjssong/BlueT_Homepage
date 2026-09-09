@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.bluet-data/
+*.sqlite3
+*.sqlite3-*
+*password*
+__pycache__/
+.DS_Store
+*.tar.gz

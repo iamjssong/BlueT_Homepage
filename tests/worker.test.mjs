@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { DatabaseSync } from 'node:sqlite';
+import fs from 'node:fs';
+import worker from '../dist/server/index.js';
+const db=new DatabaseSync(':memory:');db.exec(fs.readFileSync('drizzle/0000_thick_molten_man.sql','utf8'));
+const DB={prepare(sql){return {bind(...args){this.args=args;return this},first(){return db.prepare(sql).get(...(this.args||[]))},all(){return {results:db.prepare(sql).all(...(this.args||[]))}},run(){return db.prepare(sql).run(...(this.args||[]))}}}};
+const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('test-password'))),x=>x.toString(16).padStart(2,'0')).join('');
+const env={DB,ADMIN_PASSWORD_SHA256:digest};
+const call=(path,data,password='test-password',origin='https://test.example')=>worker.fetch(new Request('https://test.example'+path,data===undefined?{}:{method:'POST',headers:{Authorization:'Bearer '+password,Origin:origin,'Content-Type':'application/json'},body:JSON.stringify(data)}),env);
+test('public pages and private-file exclusion',async()=>{assert.equal((await call('/')).status,200);assert.equal((await call('/admin.html')).status,200);assert.equal((await call('/server.py')).status,404);assert.equal((await call('/.env')).status,404);assert.equal((await (await call('/news.js')).text()).includes('Authorization'),false)});
+test('auth, validation and persistent CRUD',async()=>{assert.equal((await call('/api/news',{},'wrong')).status,401);assert.equal((await call('/api/news',{},'test-password','https://evil.example')).status,403);assert.equal((await call('/api/news',{category:'공지',title:'',body:'body'})).status,400);assert.equal((await call('/api/news',{category:'공지',title:'Test',body:'Line 1\n<script>'})).status,200);const [post]=await (await call('/api/news')).json();assert.equal(post.body,'Line 1\n<script>');await call('/api/news',{...post,title:'Updated'});assert.equal((await (await call('/api/news')).json())[0].title,'Updated');await call('/api/delete',{id:post.id});assert.deepEqual(await (await call('/api/news')).json(),[])});
+test('login rate limit',async()=>{for(let i=0;i<10;i++)assert.equal((await call('/api/login',{},'wrong')).status,401);assert.equal((await call('/api/login',{},'wrong')).status,429)});

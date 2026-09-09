@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17372e">
+<meta name="description" content="카트에서 시작하는, 골프장의 새로운 내일. BlueT Golf는 골프 현장에 대한 이해와 기술을 연결해 더 편안한 이동과 스마트한 골프장 운영을 준비합니다.">
+<meta property="og:title" content="BlueT Golf | 골프장의 새로운 내일">
+<meta property="og:description" content="카트에서 시작해, 골프장 운영의 새로운 가능성으로.">
+<meta property="og:type" content="website">
+<title>BlueT Golf | 카트에서 시작하는 골프장의 새로운 내일</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<script src="news.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 바로가기</a>
+<header class="header">
+<a class="brand" href="#intro" aria-label="BlueT Golf 처음으로"><span>BlueT</span> Golf</a>
+<button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button>
+<nav id="navigation" aria-label="주 메뉴"><a href="#about">회사 소개</a><a href="#approach">우리의 방향</a><a href="#vision">비전</a><a href="#news">소식</a><a href="#contact">문의</a></nav>
+</header>
+<main id="main">
+<section class="hero" id="intro" aria-labelledby="hero-title">
+<div class="hero-copy">
+<h1 id="hero-title"><span class="line"><em>카트</em>에서 시작하는,</span><span class="line">골프장의 새로운 내일.</span></h1>
+<p>매일의 이동을 더 편안하게.<br class="small-break"> 골프장 운영을 더 스마트하게.<br>BlueT Golf가 현장에서 시작하는 변화를 만듭니다.</p>
+<a class="button" href="#approach">우리의 방향 알아보기 <span aria-hidden="true">↗</span></a>
+</div>
+<figure class="hero-media"><img src="assets/bluet-three-row-cart.png" alt="회색 차체와 브라운 시트를 갖춘 BlueT Golf의 3열 6인승 카트" fetchpriority="high" width="1111" height="928"></figure>
+</section>
+<section class="about" id="about" aria-labelledby="about-title">
+<div class="about-intro"><div><p class="eyebrow">WHO WE ARE</p><h2 id="about-title">골프를 아는 사람들,<br>변화를 만드는 기술.</h2></div><div class="about-description"><p>BlueT Golf는 골프와 IT, 카트 사업을 경험한 전문가들이 모인 팀입니다.</p><p>15년 이상 쌓아온 골프 시장에 대한 이해를 바탕으로, 제품 기획부터 현장 운영과 서비스까지 연결합니다. 매일의 라운드에서 출발해 골프장의 새로운 가능성을 준비합니다.</p></div></div>
+<div class="team">
+<article><div class="person"><h3>송재순</h3><span>CEO</span></div><p class="person-focus">골프와 IT를 연결하는 경영·기술 경험</p><ul><li>전 골프존 CTO · 개발본부장</li><li>전 골프존 GDR아카데미 CEO</li><li>전 뉴딘콘텐츠 CEO</li></ul></article>
+<article><div class="person"><h3>정주명</h3><span>CSO</span></div><p class="person-focus">골프 사업 전략부터 카트 사업화까지</p><ul><li>전 골프존데카 CEO</li><li>전 골프존 사업본부장 · 전략기획실장</li><li>전 골프존 카트사업 TF장</li></ul></article>
+</div></section>
+<section class="approach" id="approach" aria-labelledby="approach-title">
+<div class="section-heading"><p class="eyebrow">OUR APPROACH</p><h2 id="approach-title">가장 익숙한 이동에서,<br>가장 필요한 변화로.</h2></div>
+<div class="directions">
+<article><p class="step">01 <span>CART</span></p><h3>더 편안한 카트</h3><p>골퍼의 이동이 더 편안하고<br>즐거운 경험이 되도록,<br>카트를 다시 생각합니다.</p></article>
+<article><p class="step">02 <span>AUTONOMOUS</span></p><h3>더 스마트한 이동</h3><p>사람과 기술이 조화를 이루는<br>자율주행 기반의 이동으로,<br>골프장의 가능성을 넓혀갑니다.</p></article>
+<article><p class="step">03 <span>PHYSICAL AI</span></p><h3>서로 연결되는 운영</h3><p>데이터와 현장의 경험을 연결해,<br>더 효율적이고 지속 가능한<br>골프장 운영을 준비합니다.</p></article>
+</div>
+</section>
+<section class="news-section" id="news" aria-labelledby="news-title"><div class="news-heading"><div><p class="eyebrow">NEWS &amp; NOTICE</p><h2 id="news-title">BlueT Golf의 소식</h2></div></div><div class="news-toolbar"><div class="news-filters" role="group" aria-label="소식 분류"><button class="selected" data-filter="전체" aria-pressed="true">전체</button><button data-filter="공지" aria-pressed="false">공지</button><button data-filter="뉴스" aria-pressed="false">뉴스</button></div></div><p id="news-status" role="status">소식을 불러오고 있습니다.</p><div id="news-list"></div><button id="more-news" class="text-button" hidden>소식 더 보기 ↓</button></section>
+<dialog id="news-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="닫기">×</button><div id="dialog-content"></div></dialog>
+<section class="vision" id="vision" aria-labelledby="vision-title">
+<div class="vision-content"><h2 id="vision-title">우리가 향하는 곳은,<br>더 나은 골프장입니다.</h2><p>골프 현장에 대한 이해와 기술을 연결해,<br>골퍼와 운영자 모두에게 더 나은 일상을 만들어갑니다.</p></div>
+<p class="vision-motto" lang="en">A BETTER<br>TOMORROW<br>FOR GOLF</p>
+<div class="contact" id="contact"><p>도입 및 사업 협력 문의</p><a href="mailto:bluetgolf@bluetgolf.com">bluetgolf@bluetgolf.com <span aria-hidden="true">↗</span></a></div>
+<footer><a class="brand" href="#intro" aria-label="BlueT Golf 처음으로">BlueT Golf</a><p>© <span id="year">2026</span> BlueT Golf. All rights reserved.</p></footer>
+</section>
+</main>
+</body>
+</html>
