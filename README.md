@@ -20,6 +20,16 @@ BlueT Golf의 반응형 회사 홈페이지와 별도 공지·뉴스 관리자 �
 
 ## 실행과 배포
 
+### GitHub Pages 공개 홈페이지
+
+`main` 브랜치에 변경사항을 push하면 GitHub Actions가 홈페이지의 정적 화면을 GitHub Pages에 자동 배포합니다.
+
+- 주소: `https://iamjssong.github.io/BlueT_Homepage/`
+- 포함: 홈페이지, 이미지, 스타일, 방문자용 화면
+- 제외: 관리자 화면, Worker API, D1 데이터베이스
+
+GitHub Pages는 정적 호스팅이므로 공지·뉴스 API와 관리자 기능은 기존 배포 플랫폼에서 동작합니다. 저장소 Settings → Pages에서 Pages를 활성화하고 Source를 `GitHub Actions`로 선택해야 합니다.
+
 ### 로컬 미리보기
 
 Python 3에서 `python3 server.py` 실행 후 http://127.0.0.1:8765 에 접속합니다.
